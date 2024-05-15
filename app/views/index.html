@@ -28,13 +28,20 @@
 
       <p>You can change the service name by editing the file '/app/config.js'.</p>
 
-      <h2 class="govuk-heading-m">Record Skills Bootcamp Supplementary Data May 2024 Prototype</h2>
+      <h2 class="govuk-heading-l">Prototype</h2>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a href="/start">Record Skills Bootcamp Supplementary Data</a>
-        </li>
-      </ul>
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% set html %}
+  <p class="govuk-notification-banner__heading">
+    <a class="govuk-notification-banner__link" href="/start">Skills Boot Camp Supplementary Data prototype</a>
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+
 
       <p>You can change the service name by editing the file '/app/config.js'.</p>
 

@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Contracts – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Your current contracts</h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+    
+          <h2 class="govuk-heading-m">Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316)</h2>
+    
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Course title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Pathway A - Novice to Cat C - Skills bootcamp in HGV driving
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> course title </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contract reference number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                SBD-1116-316
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> contract reference number </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Mode of delivery
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Face to face: Multiple locations
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> mode of delivery </span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+    
+          <h2 class="govuk-heading-m">Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317)</h2>
+    
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Course title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Theoretical HGV knowledge - Skills bootcamp in HGV theory
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> course title </span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Contract reference number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                SBD-1116-317
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> previous application number</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Mode of delivery
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Online only
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a href="#">
+                  Change
+                  <span class="govuk-visually-hidden"> mode of delivery </span>
+                </a>
+              </dd>
+            </div>
+          </dl>
+    
+
+      <form class="form" action="/add-new-contract-answer" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "addContract",
+          fieldset: {
+            legend: {
+              text: "Would you like to add a new contract?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

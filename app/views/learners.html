@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Learners – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Learners currently enrolled in your bootcamp</h1>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Learner names</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"> Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316) </th>
+            <th scope="col" class="govuk-table__header"> 6 learners </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Chandler Bing</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Monica Geller</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Ross Geller</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Phoebe Buffay</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Joey Tribbiani</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Rachel Green</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header"> Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317) </th>
+            <th scope="col" class="govuk-table__header"> 3 learners </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Harry Potter</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Ron Weasley</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Hermione Granger</th>
+            <td class="govuk-table__cell"><a href>Change</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    
+
+      <form class="form" action="/add-learner" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "addLearner",
+          fieldset: {
+            legend: {
+              text: "Would you like to add a new learner?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

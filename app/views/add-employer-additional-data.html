@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add employer: Additional information – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/learners" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Add new employer: Bootcamp involvement",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+        {{ govukCheckboxes({
+          name: "employerCRNs",
+          fieldset: {
+            legend: {
+              text: "Which courses is this employer involved in?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Please select all that apply."
+          },
+          items: [
+            {
+              value: "Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316)",
+              text: "Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316)"
+            },
+            {
+              value: "Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317)",
+              text: "Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317)"
+            }
+          ]
+        }) }}
+
+
+
+{{ govukCheckboxes({
+  name: "employerContribution",
+  fieldset: {
+    legend: {
+      text: "How does this employer contribute to your skills bootcamp?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Please select all that apply."
+  },
+  items: [
+    {
+      value: "Understanding skills need and learner screening",
+      text: "Understanding skills need and learner screening"
+    },  
+    {
+      value: "Course content agreement",
+      text: "Course content agreement"
+    },
+    {
+      value: "Course delivery",
+      text: "Course delivery"
+    },
+    {
+      value: "Course and candidate suitability review",
+      text: "Course and candidate suitability review"
+    }
+  ]
+}) }}
+        
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "Is this employer sponsoring their own employees to participate in the Skills Bootcamp?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+        
+
+            
+        {% endcall %}
+
+
+    
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+              <h1 class="govuk-fieldset__heading">
+                Is this employer offering vacancies to Skills Bootcamp participants?
+              </h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              Select one option.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Number of vacancies offered
+                  </label>
+                  <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contactByEmail" type="email" spellcheck="false" autocomplete="email">
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-radios__label" for="contact-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "Did you provide this employer with the Employer Privacy Notice?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "research",
+          fieldset: {
+            legend: {
+              text: "May we contact this employer for research purposes?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Research may be carried out by a third-party research contractor commissioned by DfE."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              hint: {
+                text: "This employer has agreed to be contacted."
+              }
+            },
+            {
+              value: "No",
+              text: "No",
+              hint: {
+                text: "This employer has opted out from being contacted."
+              }
+            }
+          ]
+        }) }}
+
+<p> </p>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

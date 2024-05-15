@@ -1,0 +1,246 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add learner – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/add-learner-additional-data" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Add new learner",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+          {{ govukInput({
+            label: {
+              text: "Learner name",
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "First and last name."
+            },
+            id: "learner-name",
+            name: "learnerName",
+            autocomplete: "learnerName"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "Unique learner number",
+              classes: "govuk-label--s"
+            },
+            hint: {
+              text: "Unique Learner Number must match this learner's Unique Learner Number under ILR Funding Model 37."
+            },
+            classes: "govuk-input--width-10",
+            id: "width-10",
+            name: "width10"
+          }) }}
+        
+        {% endcall %}
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+
+        {{ govukCheckboxes({
+          name: "employerCRNs",
+          fieldset: {
+            legend: {
+              text: "Which courses is this learner participating in?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Please select all that apply."
+          },
+          items: [
+            {
+              value: "Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316)",
+              text: "Pathway A - Novice to Cat C - Skills bootcamp in HGV driving (SBD-1116-316)"
+            },
+            {
+              value: "Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317)",
+              text: "Theoretical HGV knowledge - Skills bootcamp in HGV theory (SBD-1116-317)"
+            }
+          ]
+        }) }}
+
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "What employment status did the learner have at the time of starting the skills bootcamp?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "Unemployed",
+              text: "Unemployed",
+              hint: {
+                text: "Include learners who quit their jobs to join the skills bootcamp."
+              }
+            },
+            {
+              value: "Self-Employed",
+              text: "Self-Employed"
+            },
+            {
+              value: "Employed and co-funded by employer",
+              text: "Employed and co-funded by employer"
+            },
+            {
+              value: "Employed, but NOT co-funded by employer",
+              text: "Employed but NOT co-funded by employer"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        In what sector did the learner mainly work in prior to applying for the Skills Bootcamp?
+      </h1>
+    </legend>
+    <div id="contact-hint" class="govuk-hint">
+      Select one option.
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Digital Sector
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Including data engineering, software development and marketing.
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Technical Sector
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Including construction and engineering.
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
+          Green Sector
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Including electric vehicle maintenance and heat pump technology.
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="northern-ireland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+          Health and Social Care
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Including care management and well-being.
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-4" name="whereDoYouLive" type="radio" value="HGV Drivingd">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+          HGV Driving
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-5" name="whereDoYouLive" type="radio" value="Business and Administration">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-4">
+          Business and Administration
+        </label>
+        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+          Including project management and insurance.
+        </div>
+      </div>
+      <div class="govuk-radios__divider">or</div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-6" name="whereDoYouLive" type="radio" value="text" data-aria-controls="conditional-contact-3">
+        <label class="govuk-label govuk-radios__label" for="contact-3">
+          Other sector
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="contact-by-text">
+            Sector name
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-text" name="contactByText" type="tel" autocomplete="tel">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "research",
+  fieldset: {
+    legend: {
+      text: "May we contact this learner for research purposes?",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Research may be carried out by a third-party research contractor commissioned by DfE."
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      hint: {
+        text: "This learner has agreed to be contacted."
+      }
+    },
+    {
+      value: "No",
+      text: "No",
+      hint: {
+        text: "This learner has opted out from being contacted."
+      }
+    }
+  ]
+}) }}
+
+
+<p> </p>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

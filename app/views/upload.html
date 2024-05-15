@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Upload your May 2024 data as an XML file</h1>
+
+      <h2 class="govuk-heading-m">First, select your XML file</h2>
+
+      <p>Before uploading, please ensure that your file conforms to the <a href>Skills Bootcamp supplementary data schema</a></p>.
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{{ govukFileUpload({
+  id: "file-upload-1",
+  name: "fileUpload1",
+  label: {
+    text: "Select XML file"
+  }
+}) }}
+      </dl>
+
+      <h2 class="govuk-heading-m">Now, submit your file</h2>
+
+      <p>By submitting this XML file you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

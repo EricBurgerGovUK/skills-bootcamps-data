@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Add contract – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="contracts" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Add new contract",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+          {{ govukInput({
+            label: {
+              text: "Contract Title",
+              classes: "govuk-label--s"
+            },
+            id: "contract-title",
+            name: "contractTitle",
+            autocomplete: "contractTitl"
+          }) }}
+        
+          {{ govukInput({
+            label: {
+              text: "Contract Reference Number",
+              classes: "govuk-label--s"
+            },
+            classes: "govuk-input--width-20",
+            id: "width-20",
+            name: "width20"
+          }) }}
+        
+        {% endcall %}
+
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "modeOfCourseDelivery",
+  fieldset: {
+    legend: {
+      text: "Mode of course delivery",
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+    {
+      value: "online only",
+      text: "Online only"
+    },
+    {
+      value: "hybrid",
+      text: "Hybrid"
+    },
+    {
+      value: "face to face: single location",
+      text: "Face to face: single location"
+    },
+    {
+      value: "face to face: multiple locations",
+      text: "Face to face: multiple locations"
+    }
+  ]
+}) }}
+
+
+<p> </p>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

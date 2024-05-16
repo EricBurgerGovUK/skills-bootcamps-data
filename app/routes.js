@@ -21,21 +21,21 @@ router.post('/type-or-upload-answer', function (req, res) {
   })
 
   // Run this code when a form is submitted to 'type-or-upload-answer'
-router.post('/add-new-contract-answer', function (req, res) {
+// router.post('/add-new-contract-answer', function (req, res) {
 
   // Make a variable and give it the value from 'share-data'
-  var addNewContract = req.session.data['addContract']
+//  var addNewContract = req.session.data['addContract']
 
   // Check whether the variable matches a condition
-  if (addNewContract == "Yes"){
+//  if (addNewContract == "Yes"){
     // Send user to add contract page
-    res.redirect('/add-contract')
-  } else {
+//    res.redirect('/add-contract')
+//  } else {
     // Send user to new starters page
-    res.redirect('/new-starters')
-  }
+//    res.redirect('/new-starters')
+//  }
 
-})
+// })
 
 
 module.exports = router

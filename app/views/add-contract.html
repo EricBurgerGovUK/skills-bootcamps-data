@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Add contract – {{ serviceName }} – GOV.UK Prototype Kit
+  Add course – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,31 +20,35 @@
         
         {% call govukFieldset({
           legend: {
-            text: "Add new contract",
+            text: "Add course",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
         }) %}
         
+        {{ govukInput({
+          label: {
+            text: "Contract Reference Number",
+            classes: "govuk-label--s"
+          },
+  hint: {
+    text: "You can find your contract reference number in the funding summary report from the ILR (SLD reports)."
+  },
+          classes: "govuk-input--width-20",
+          id: "width-20",
+          name: "width20"
+        }) }}
+
           {{ govukInput({
             label: {
-              text: "Contract Title",
+              text: "Course Title",
               classes: "govuk-label--s"
             },
-            id: "contract-title",
-            name: "contractTitle",
-            autocomplete: "contractTitl"
+            id: "course-title",
+            name: "courseTitle",
+            autocomplete: "courseTitle"
           }) }}
-        
-          {{ govukInput({
-            label: {
-              text: "Contract Reference Number",
-              classes: "govuk-label--s"
-            },
-            classes: "govuk-input--width-20",
-            id: "width-20",
-            name: "width20"
-          }) }}
+  
         
         {% endcall %}
 
@@ -55,7 +59,7 @@
   name: "modeOfCourseDelivery",
   fieldset: {
     legend: {
-      text: "Mode of course delivery",
+      text: "How will this course be delivered?",
       classes: "govuk-fieldset__legend--s"
     }
   },
@@ -64,20 +68,24 @@
   },
   items: [
     {
-      value: "online only",
+      value: "Online only",
       text: "Online only"
     },
     {
-      value: "hybrid",
-      text: "Hybrid"
+      value: "In person at a single location",
+      text: "In person at a single location"
     },
     {
-      value: "face to face: single location",
-      text: "Face to face: single location"
+      value: "In person at multiple locations",
+      text: "In person at multiple locations"
     },
     {
-      value: "face to face: multiple locations",
-      text: "Face to face: multiple locations"
+      value: "Hybrid: in person at a single location and online",
+      text: "Hybrid: in person at a single location and online"
+    },
+    {
+      value: "Hybrid: in person at a single location and online",
+      text: "Hybrid: in person at multiple locations and online"
     }
   ]
 }) }}

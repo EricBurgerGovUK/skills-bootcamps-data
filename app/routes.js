@@ -10,12 +10,12 @@ router.post('/type-or-upload-answer', function (req, res) {
     var typeOrUpload = req.session.data['share-data']
   
     // Check whether the variable matches a condition
-    if (typeOrUpload == "By typing into an online form"){
-      // Send user to webform
-      res.redirect('/contracts')
-    } else {
+    if (typeOrUpload == "upload"){
       // Send user to upload page
       res.redirect('/upload')
+    } else {
+      // Send user to online form
+      res.redirect('/contracts')
     }
   
   })

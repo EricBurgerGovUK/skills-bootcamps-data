@@ -18,10 +18,10 @@
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
         {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-        
+
         {% call govukFieldset({
           legend: {
-            text: "Add new employer: Bootcamp involvement",
+            text: "Employer's associated bootcamp details",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -34,12 +34,12 @@
           name: "employerCRNs",
           fieldset: {
             legend: {
-              text: "Which courses is this employer involved in?",
+              text: "Which courses is the employer engaging with?",
               classes: "govuk-fieldset__legend--s"
             }
           },
           hint: {
-            text: "Please select all that apply."
+            text: "Select all that apply."
           },
           items: [
             {
@@ -59,7 +59,7 @@
   name: "employerContribution",
   fieldset: {
     legend: {
-      text: "How does this employer contribute to your skills bootcamp?",
+      text: "How does the employer engage with or contribute to the courses?",
       classes: "govuk-fieldset__legend--s"
     }
   },
@@ -94,12 +94,9 @@
           name: "changedName",
           fieldset: {
             legend: {
-              text: "Is this employer sponsoring their own employees to participate in the Skills Bootcamp?",
+              text: "Is this employer sponsoring one or more learners?",
               classes: "govuk-fieldset__legend--s"
             }
-          },
-          hint: {
-            text: "Select one option."
           },
           items: [
             {
@@ -123,12 +120,9 @@
           <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
               <h1 class="govuk-fieldset__heading">
-                Is this employer offering vacancies to Skills Bootcamp participants?
+                Is the employer offering vacancies to learners?
               </h1>
             </legend>
-            <div id="contact-hint" class="govuk-hint">
-              Select one option.
-            </div>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
@@ -161,12 +155,12 @@
           name: "changedName",
           fieldset: {
             legend: {
-              text: "Did you provide this employer with the Employer Privacy Notice?",
+              text: "Has the Employer Privacy Notice been provided to the employer?",
               classes: "govuk-fieldset__legend--s"
             }
           },
           hint: {
-            text: "Select one option."
+            text: "This must be provided to the employer so they understand how their data will be used."
           },
           items: [
             {
@@ -186,33 +180,27 @@
           name: "research",
           fieldset: {
             legend: {
-              text: "May we contact this employer for research purposes?",
+              text: "Does the employer give permission to be contacted for research purposes?",
               classes: "govuk-fieldset__legend--s"
             }
           },
           hint: {
-            text: "Research may be carried out by a third-party research contractor commissioned by DfE."
+            text: "This would involve being invited by a third-party research contractor to participate in interviews or surveys to gain their feedback."
           },
           items: [
             {
-              value: "Yes",
-              text: "Yes",
-              hint: {
-                text: "This employer has agreed to be contacted."
-              }
+              value: "Yes, the employer has agreed to be contacted",
+              text: "Yes, the employer has agreed to be contacted"
             },
             {
-              value: "No",
-              text: "No",
-              hint: {
-                text: "This employer has opted out from being contacted."
-              }
+              value: "No, the employer does not want to be contacted",
+              text: "No, the employer does not want to be contacted"
             }
           ]
         }) }}
 
 <p> </p>
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
 

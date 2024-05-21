@@ -21,7 +21,7 @@
         
         {% call govukFieldset({
           legend: {
-            text: "Add new learner: Employer involvement",
+            text: "Learner's associated employer details",
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
           }
@@ -49,12 +49,9 @@
           name: "changedName",
           fieldset: {
             legend: {
-              text: "If the learner is employed, what is the name of their current employer? (Employer name)",
+              text: "If the learner is employed, what is the name of their current employer?",
               classes: "govuk-fieldset__legend--s"
             }
-          },
-          hint: {
-            text: "Select one option."
           },
           items: [
             {
@@ -102,7 +99,7 @@
   <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       <h1 class="govuk-fieldset__heading">
-        If the learner is co-funded, what is the name of the entity/employer providing the co-funding?
+        If the learner is co-funded, who is providing the co-funding??
       </h1>
     </legend>
     <div id="contact-hint" class="govuk-hint">
@@ -166,7 +163,7 @@
 <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
 <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
 <h1 class="govuk-fieldset__heading">
-  Please enter the employer name who offered a guaranteed interview to learner
+  What is the name of the employer who has offered a guaranteed interview to the learner?
 </h1>
 </legend>
 <div id="contact-hint" class="govuk-hint">
@@ -216,7 +213,7 @@ Select one option.
           name: "changedName",
           fieldset: {
             legend: {
-              text: "If the learner is employed as a result of achieving an outcome, what best describes the learner's employment situation compared to before joining the Skills Bootcamp?",
+              text: "What is the employment status of the learner after completing the bootcamp?",
               classes: "govuk-fieldset__legend--s"
             }
           },
@@ -257,7 +254,7 @@ Select one option.
 
 
 <p> </p>
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
 

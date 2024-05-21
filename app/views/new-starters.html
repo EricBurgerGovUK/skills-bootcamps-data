@@ -13,7 +13,15 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">How many new starters did your courses have in May 2024?</h1>
+      <h1 class="govuk-heading-l">How many new learners started on your courses in May 2024?</h1>
+      <p id="new-learners-hint" class="govuk-hint">
+        This is the total number of any new learners with a start date that occurs within this month. It can be 0.  
+      </p>
+
+      <p>
+        
+        
+      </p>
 
       <form class="form" action="/new-applicants" method="post">
 
@@ -21,7 +29,7 @@
 
         {{ govukInput({
           label: {
-            text: "New starters in May 2024"
+            text: "New learners in May 2024"
           },
           classes: "govuk-input--width-4",
           id: "width-4",
@@ -32,14 +40,14 @@
 
         {{ govukInput({
           label: {
-            text: "New starters in May 2024"
+            text: "New learners in May 2024"
           },
           classes: "govuk-input--width-4",
           id: "width-4",
           name: "width4"
         }) }}
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 
       </form>
 
